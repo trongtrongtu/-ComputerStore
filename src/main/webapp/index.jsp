@@ -40,11 +40,11 @@
                                         %>
                                         <div class="product">
                                             <div class="product-img">
-                                                <img src="image/Smartphone/<%=p.getHinh_anh_1()%>" alt="" >
+                                                <img src="image/<%=p.getHinh_anh_1()%>" alt="" >
                                             </div>                                         
                                             <div class="product-body">
                                                
-                                                <h3 class="product-name"><a href="product.jsp?ma_san_pham=<%=p.getMa_san_pham()%>"><%=p.getTen_san_pham()%></a></h3>
+                                                <h3 class="product-name"><a href="product_detail.jsp?ma_san_pham=<%=p.getMa_san_pham()%>"><%=p.getTen_san_pham()%></a></h3>
                                                 <h4 class="product-price"><%=formatter.format(p.getGia_ban())%> VNĐ</h4>
                                                 <div class="product-rating">
                                                     <i class="fa fa-star"></i>
@@ -79,12 +79,12 @@
                                         %>
                                         <div class="product">
                                             <div class="product-img">
-                                                <img src="image/TV/<%=p.getHinh_anh_1()%>" alt="">
+                                                <img src="image/<%=p.getHinh_anh_1()%>" alt="">
                                             </div>
 
                                             <div class="product-body">
                                                
-                                                <h3 class="product-name"><a href="product.jsp?ma_san_pham=<%=p.getMa_san_pham()%>"><%=p.getTen_san_pham()%></a></h3>
+                                                <h3 class="product-name"><a href="product_detail.jsp?ma_san_pham=<%=p.getMa_san_pham()%>"><%=p.getTen_san_pham()%></a></h3>
                                                 <h4 class="product-price"><%=formatter.format(p.getGia_ban())%> VNĐ</h4>
                                                 <div class="product-rating">
                                                     <i class="fa fa-star"></i>
@@ -120,11 +120,11 @@
                                         %>
                                         <div class="product">
                                             <div class="product-img">
-                                                <img src="image/Laptop/<%=p.getHinh_anh_1()%>" alt="" >
+                                                <img src="image/<%=p.getHinh_anh_1()%>" alt="" >
                                             </div>                                         
                                             <div class="product-body">
                                                 
-                                                <h3 class="product-name"><a href="product.jsp?ma_san_pham=<%=p.getMa_san_pham()%>"><%=p.getTen_san_pham()%></a></h3>
+                                                <h3 class="product-name"><a href="product_detail.jsp?ma_san_pham=<%=p.getMa_san_pham()%>"><%=p.getTen_san_pham()%></a></h3>
                                                 <h4 class="product-price"><%=formatter.format(p.getGia_ban())%> VNĐ</h4>
                                                 <div class="product-rating">
                                                     <i class="fa fa-star"></i>
@@ -157,11 +157,11 @@
                                         %>
                                         <div class="product">
                                             <div class="product-img">
-                                                <img src="image/Camera/<%=p.getHinh_anh_1()%>" alt="" >
+                                                <img src="image/<%=p.getHinh_anh_1()%>" alt="" >
                                             </div>                                         
                                             <div class="product-body">
                                                 
-                                                <h3 class="product-name"><a href="product.jsp?ma_san_pham=<%=p.getMa_san_pham()%>"><%=p.getTen_san_pham()%></a></h3>
+                                                <h3 class="product-name"><a href="product_detail.jsp?ma_san_pham=<%=p.getMa_san_pham()%>"><%=p.getTen_san_pham()%></a></h3>
                                                 <h4 class="product-price"><%=formatter.format(p.getGia_ban())%> VNĐ</h4>
                                                 <div class="product-rating">
                                                     <i class="fa fa-star"></i>
@@ -194,11 +194,11 @@
                                         %>
                                         <div class="product">
                                             <div class="product-img">
-                                                <img src="image/Tablet/<%=p.getHinh_anh_1()%>" alt="" >
+                                                <img src="image/<%=p.getHinh_anh_1()%>" alt="" >
                                             </div>                                         
                                             <div class="product-body">
                                              
-                                                <h3 class="product-name"><a href="product.jsp?ma_san_pham=<%=p.getMa_san_pham()%>"><%=p.getTen_san_pham()%></a></h3>
+                                                <h3 class="product-name"><a href="product_detail.jsp?ma_san_pham=<%=p.getMa_san_pham()%>"><%=p.getTen_san_pham()%></a></h3>
                                                 <h4 class="product-price"><%=formatter.format(p.getGia_ban())%> VNĐ</h4>
                                                 <div class="product-rating">
                                                     <i class="fa fa-star"></i>

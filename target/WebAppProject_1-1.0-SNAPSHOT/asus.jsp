@@ -10,7 +10,9 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Asus</title>
     </head>
     <body>
@@ -27,8 +29,8 @@
                                     <div id="tab1" class="tab-pane active">
                                         <div class="products-slick" data-nav="#slick-nav-1">
                                             <%
-                                                ProductDAOImple productDAO3 = new ProductDAOImple();
-                                                for (Product p : productDAO3.getListByCategory(1)) {
+                                                ProductDAOImple productDAO1 = new ProductDAOImple();
+                                                for (Product p : productDAO1.getListByCategory(2)) {
                                                     DecimalFormat formatter = new DecimalFormat("###,###,###");
                                             %>
                                             <div class="product">
