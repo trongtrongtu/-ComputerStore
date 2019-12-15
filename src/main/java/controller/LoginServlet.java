@@ -35,7 +35,7 @@ public class LoginServlet extends HttpServlet {
             throws ServletException, IOException {
 
         RequestDispatcher dispatcher //
-                = this.getServletContext().getRequestDispatcher("/Login.jsp");
+                = this.getServletContext().getRequestDispatcher("/login.jsp");
 
         dispatcher.forward(request, response);
 
@@ -60,7 +60,7 @@ public class LoginServlet extends HttpServlet {
             request.setAttribute("error", error);
         }
 
-        String url = "/Login.jsp";
+        String url = "/login.jsp";
         try {
             if (error.length() == 0) {
                 HttpSession session = request.getSession();
@@ -70,15 +70,15 @@ public class LoginServlet extends HttpServlet {
                     //setting cookie to expiry in 60 mins
                     loginCookie.setMaxAge(60*60);
                     response.addCookie(loginCookie);
-                    response.sendRedirect(request.getContextPath() + "/MyAccount");
+                    response.sendRedirect(request.getContextPath() + "/index.jsp");
                 }
             } else {
-                url = "/Login.jsp";
+                url = "/login.jsp";
                 RequestDispatcher rd = getServletContext().getRequestDispatcher(url);
                 rd.forward(request, response);
             }
         } catch (IOException | ServletException e) {
-            response.sendRedirect("/Login.jsp");
+            response.sendRedirect("/login.jsp");
         }
     }
 

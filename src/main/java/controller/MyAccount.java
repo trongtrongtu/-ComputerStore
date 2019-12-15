@@ -74,7 +74,7 @@ public class MyAccount extends HttpServlet {
             if (error.length() == 0) {
                 User u= new User(0, username, password, ngaysinh, gioitinh, email, sdt, diachi, 2);
                 userDAO.updateUser(u);
-                url = "/myaccount.jsp";
+                response.sendRedirect("myaccount.jsp");
             } 
             else {
                 url = "/myaccount.jsp";

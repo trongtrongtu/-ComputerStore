@@ -10,10 +10,27 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
         <title>Dell</title>
+        <!-- Google font -->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+        <!-- Bootstrap -->
+        <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css"/>
+        <!-- Slick -->
+        <link type="text/css" rel="stylesheet" href="css/slick.css"/>
+        <link type="text/css" rel="stylesheet" href="css/slick-theme.css"/>
+        <!-- nouislider -->
+        <link type="text/css" rel="stylesheet" href="css/nouislider.min.css"/>
+        <!-- Font Awesome Icon -->
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <!-- Custom stlylesheet -->
+        <link type="text/css" rel="stylesheet" href="css/style.css"/>
     </head>
     <body>
+        <jsp:include page="header.jsp"></jsp:include>
         <div class="section">
             <div class="container">
                 <div class="row">
@@ -28,16 +45,16 @@
                                         <div class="products-slick" data-nav="#slick-nav-1">
                                             <%
                                                 ProductDAOImple productDAO3 = new ProductDAOImple();
-                                                for (Product p : productDAO3.getListByCategory(1)) {
+                                                for (Product p : productDAO3.getListByCategory(4)) {
                                                     DecimalFormat formatter = new DecimalFormat("###,###,###");
                                             %>
                                             <div class="product">
                                                 <div class="product-img">
-                                                    <img src="image/Laptop/<%=p.getHinh_anh_1()%>" alt="" >
+                                                    <img style="height: 285px" src="image/Dell/<%=p.getHinh_anh_1()%>" alt="" >
                                                 </div>                                         
                                                 <div class="product-body">
 
-                                                    <h3 class="product-name"><a href="product.jsp?ma_san_pham=<%=p.getMa_san_pham()%>"><%=p.getTen_san_pham()%></a></h3>
+                                                    <h3 class="product-name"><a href="product_detail.jsp?ma_san_pham=<%=p.getMa_san_pham()%>"><%=p.getTen_san_pham()%></a></h3>
                                                     <h4 class="product-price"><%=formatter.format(p.getGia_ban())%> VNĐ</h4>
                                                     <div class="product-rating">
                                                         <i class="fa fa-star"></i>
@@ -60,5 +77,11 @@
                 </div>
             </div>
         </div>
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/slick.min.js"></script>
+        <script src="js/nouislider.min.js"></script>
+        <script src="js/jquery.zoom.min.js"></script>
+        <script src="js/main.js"></script>
     </body>
 </html>

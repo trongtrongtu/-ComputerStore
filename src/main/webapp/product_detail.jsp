@@ -115,7 +115,7 @@
                                 
                             </div>          
                                 <h5>Chọn số lượng:</h5>
-                            <form  action="CartServlet" method="post">
+                            <form  action="mycart.jsp">
                                 <input type="hidden" value="<%=id%>" name="ma_nguoi_dung"/>
                                 <input type="hidden" value="<%=ma_san_pham%>" name="ma_san_pham" />
                                 <input type="hidden" value="<%=productDAO.getProduct(Integer.parseInt(ma_san_pham)).getTen_san_pham()%>" name="ten_san_pham" />
@@ -124,17 +124,17 @@
                                 </div>                            
                                 <input type="hidden" value="<%=(int) productDAO.getProduct(Integer.parseInt(ma_san_pham)).getGia_ban()%>" name="gia_ban" />
                                 <div class="form-group">
-                                    <button style="background-color: #d10a00; border: solid; border-color:#d10a00; color: white" class="primary-btn order-submit">MUA NGAY</button>
+                                    <button style="background-color: #d10a00; border: solid; border-color:#d10a00; color: white; border-width: 1px" class="primary-btn order-submit">MUA NGAY</button>
                                     <button style="color: #d10a00; border: solid; border-color:#d10a00; background-color: white; border-width: 1px" class="primary-btn order-submit">THÊM VÀO GIỎ HÀNG</button>
                                 </div>
                             </form>
                             
                             <ul class="product-links">
                                 <li>Chia sẻ:</li>
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                <li><a href="#"><i class="fa fa-envelope"></i></a></li>
+                                <li><a href="https://www.facebook.com"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="https://twitter.com"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="https://google.com/"><i class="fa fa-google-plus"></i></a></li>
+                                <li><a href="https://mail.google.com/mail"><i class="fa fa-envelope"></i></a></li>
                             </ul>
                         </div>
                         

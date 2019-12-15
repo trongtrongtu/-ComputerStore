@@ -54,9 +54,10 @@
                                                 </div>                                         
                                                 <div class="product-body">
 
-                                                    <h3 class="product-name"><a href="product.jsp?ma_san_pham=<%=p.getMa_san_pham()%>"><%=p.getTen_san_pham()%></a></h3>
+                                                    <h3 class="product-name"><a href="product_detail.jsp?ma_san_pham=<%=p.getMa_san_pham()%>"><%=p.getTen_san_pham()%></a></h3>
                                                     <h4 class="product-price"><%=formatter.format(p.getGia_ban())%> VNĐ</h4>
                                                     <div class="product-rating">
+                                                        <i class="fa fa-star"></i>
                                                         <i class="fa fa-star"></i>
                                                         <i class="fa fa-star"></i>
                                                         <i class="fa fa-star"></i>
