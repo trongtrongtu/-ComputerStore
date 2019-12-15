@@ -1,5 +1,6 @@
 C:\Users\Tu Nguyen\Documents\NetBeansProjects\WebAppProject_1\src\main\java\controller\SignupServlet.java
 C:\Users\Tu Nguyen\Documents\NetBeansProjects\WebAppProject_1\src\main\java\dao\UserDAOImple.java
+C:\Users\Tu Nguyen\Documents\NetBeansProjects\WebAppProject_1\src\main\java\model\Order.java
 C:\Users\Tu Nguyen\Documents\NetBeansProjects\WebAppProject_1\src\main\java\controller\admin\ProdctEditAdmin.java
 C:\Users\Tu Nguyen\Documents\NetBeansProjects\WebAppProject_1\src\main\java\controller\admin\UserAddAdmin.java
 C:\Users\Tu Nguyen\Documents\NetBeansProjects\WebAppProject_1\src\main\java\controller\Home.java
@@ -17,7 +18,6 @@ C:\Users\Tu Nguyen\Documents\NetBeansProjects\WebAppProject_1\src\main\java\dao\
 C:\Users\Tu Nguyen\Documents\NetBeansProjects\WebAppProject_1\src\main\java\controller\admin\OrderListAdmin.java
 C:\Users\Tu Nguyen\Documents\NetBeansProjects\WebAppProject_1\src\main\java\model\Product.java
 C:\Users\Tu Nguyen\Documents\NetBeansProjects\WebAppProject_1\src\main\java\controller\ProductSeachByName.java
-C:\Users\Tu Nguyen\Documents\NetBeansProjects\WebAppProject_1\src\main\java\model\Cart.java
 C:\Users\Tu Nguyen\Documents\NetBeansProjects\WebAppProject_1\src\main\java\controller\admin\ProductAddAdmin.java
 C:\Users\Tu Nguyen\Documents\NetBeansProjects\WebAppProject_1\src\main\java\conn\ConnectionDB.java
 C:\Users\Tu Nguyen\Documents\NetBeansProjects\WebAppProject_1\src\main\java\controller\admin\UserEditAdmin.java

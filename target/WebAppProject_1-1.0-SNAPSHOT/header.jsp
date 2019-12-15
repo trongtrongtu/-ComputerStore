@@ -12,14 +12,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Header</title>
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/a.css">
     </head>
     <body>
         <!--Banner-->
         <div class="banner">
             <div class="img_banner"><img src="img/logo.jpg" alt=""></div>
             <div class="text_banner">
-                <h2>Bán Máy Tính</h2>
+                <h2>Cửa Hàng Máy Tính</h2>
             </div>
         </div>
         <!--Menu-->

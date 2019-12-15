@@ -6,7 +6,7 @@
 package dao;
 
 import java.util.List;
-import model.Cart;
+import model.Order;
 import model.CartAdmin;
 
 /**
@@ -15,11 +15,11 @@ import model.CartAdmin;
  */
 public interface CartDAO {
 
-    // thêm Cart
-    public void addCart(Cart c);
+    // thêm Order
+    public void addCart(Order c);
 
-    // hiển thị danh sách Cart
-    public List<Cart> getListCart(int id);
+    // hiển thị danh sách Order
+    public List<Order> getListCart(int id);
 
     // xoá 1 cart
     public void removeCart(int id);

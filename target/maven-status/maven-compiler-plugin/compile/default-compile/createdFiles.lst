@@ -1,5 +1,4 @@
 controller\Cart.class
-model\Cart.class
 dao\CartDAO.class
 conn\ConnectionDB.class
 dao\UserDAOImple.class
@@ -25,6 +24,7 @@ controller\admin\ProdctEditAdmin.class
 controller\admin\OrderListAdmin.class
 controller\ProductSeachByCategory.class
 dao\CartDAOImple.class
+model\Order.class
 model\Category.class
 controller\ProductListClient.class
 controller\admin\UserListAdmin.class

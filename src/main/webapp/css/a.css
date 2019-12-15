@@ -1,0 +1,125 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+.banner{
+    height: 100px;
+    width: auto;
+    display: flex;
+    font-family: Seggoe UI;
+    background-color: #3498db;
+}
+.banner .img_banner{
+    height: 80px;
+    width: 200px;
+ }
+.banner .img_banner img{
+    height: 100px;
+
+}
+.banner .text_banner{
+    font-size: 20px;
+    margin: auto;
+    text-align: center;
+    
+}
+ 
+.search{
+    display: flex;
+    height: 50px;
+    width: 50%;
+    font-family: segoe ui;
+    font-size: 20px;
+    margin: auto;
+}
+.search .search_text{
+    
+    line-height: 10px;
+}
+.search .container{
+    padding-left: 10px;
+    margin-top: 10px;
+}
+.search .container .icon{
+    position: absolute;
+    padding-left: 70px;
+
+}
+.search .container .search_input{
+    height: 30px;
+    width: 200px;
+    border-radius: 3px;
+}
+
+
+
+.menu{
+    height: 50px;
+    width: auto;
+    font-family: segoe UI;
+    background-color: #e74c3c;
+}
+.menu ul{
+    height: 50px;
+    display: flex;
+    font-size: 25px;
+    padding-left: 100px;
+    padding-right: 100px;
+    margin:auto;
+    
+}
+.menu ul li{
+    list-style: none;
+    margin: auto;
+    text-align: center;
+    transition: 0.5s;
+
+}
+.menu ul li:hover{
+    background-color: #c0392b;
+    
+}
+
+.menu ul li a{
+    text-decoration: none;
+    color: aliceblue;
+    font-weight: bold;
+}
+
+.content{
+}
+.content .content_element{
+    display: flex;
+    padding-top: 25px;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+.content .nganGiua{
+    background-color: #e74c3c;
+    height: 20px;
+}
+.content .content_element .content_element_product {
+    
+    margin: auto;
+    height: 220px;
+    width: 200px;
+    
+
+ }
+.content .content_element .content_element_product img{
+    width: 100%;
+    height: 150px;
+ }
+.content .content_element .content_element_product p{
+  height: 10px;
+ }
+
+ .footer{
+     padding-top: 10px;
+    background-color: #c0392b;
+    height: 150px;
+    text-align: center;
+ }
+
+
+

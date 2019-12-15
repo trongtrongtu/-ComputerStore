@@ -13,7 +13,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import model.Cart;
+import model.Order;
 import model.CartAdmin;
 
 /**
@@ -22,8 +22,8 @@ import model.CartAdmin;
  */
 public class CartDAOImple implements CartDAO{
     @Override
-    public void addCart(Cart c) {
-        String sql = "INSERT INTO CART(ma_nguoi_dung, ma_san_pham, ngay_mua, so_luong, thanh_tien, trang_thai) VALUES (?,?,?,?,?,?);";
+    public void addCart(Order c) {
+        String sql = "INSERT INTO ORDER(ma_nguoi_dung, ma_san_pham, ngay_mua, so_luong, thanh_tien, trang_thai) VALUES (?,?,?,?,?,?);";
         PreparedStatement ps;
         try {
             Connection con = ConnectionDB.getConnectionDB();
@@ -43,7 +43,7 @@ public class CartDAOImple implements CartDAO{
     //public static void main(String[] args) {
         //long millis = System.currentTimeMillis();  
         //java.sql.Date ngay_mua = new java.sql.Date(millis);
-        //Cart c = new Cart(1, 12, "TV", ngay_mua , 2, 1000, "Đang xử lí");
+        //Cart c = new Order(1, 12, "TV", ngay_mua , 2, 1000, "Đang xử lí");
         //CartDAOImple cartDAO = new CartDAOImple();
         //cartDAO.getListCartAdminCategory(1);
         //cartDAO.countCartCategory(1);
@@ -54,15 +54,14 @@ public class CartDAOImple implements CartDAO{
         //System.out.println(productDAO.getList());
         //System.out.println(productDAO.getListByCategory(5));}
     @Override
-    public List<Cart> getListCart(int id) {
-        String sql = "SELECT CART.id_cart, CART.ma_nguoi_dung, CART.ma_san_pham, PRODUCT.ten_san_pham, CART.ngay_mua, CART.so_luong, CART.thanh_tien, CART.trang_thai FROM CART, PRODUCT WHERE((CART.ma_san_pham = PRODUCT.ma_san_pham) AND (ma_nguoi_dung = '" + id + "'));";
-        List<Cart> list = new ArrayList<Cart>();
+    public List<Order> getListCart(int id) {
+        String sql = "SELECT ORDER.ma_nguoi_dung, ORDER.ma_san_pham, PRODUCT.ten_san_pham, ORDER.ngay_mua, ORDER.so_luong, ORDER.thanh_tien, ORDER.trang_thai FROM ORDER, PRODUCT WHERE((ORDER.ma_san_pham = PRODUCT.ma_san_pham) AND (ma_nguoi_dung = '" + id + "'));";
+        List<Order> list = new ArrayList<Order>();
         try {
             Connection con = ConnectionDB.getConnectionDB();
             PreparedStatement ps = (PreparedStatement) con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                    int id_cart = rs.getInt("id_cart");
                     int ma_nguoi_dung = rs.getInt("ma_nguoi_dung");
                     int ma_san_pham = rs.getInt("ma_san_pham");
                     String ten_san_pham = rs.getString("ten_san_pham");
@@ -70,7 +69,7 @@ public class CartDAOImple implements CartDAO{
                     int so_luong = rs.getInt("so_luong");
                     int thanh_tien = rs.getInt("thanh_tien");
                     String trang_thai = rs.getString("trang_thai");
-                    list.add(new Cart(id_cart, ma_nguoi_dung, ma_san_pham, ten_san_pham, ngay_mua, so_luong, thanh_tien, trang_thai));
+                    list.add(new Order(ma_nguoi_dung, ma_san_pham, ten_san_pham, ngay_mua, so_luong, thanh_tien, trang_thai));
                 }
                 con.close();
         } catch (SQLException e) {
