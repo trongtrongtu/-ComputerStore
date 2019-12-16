@@ -58,7 +58,7 @@
                                 <input type="password" name="password" placeholder="Mật khẩu" class="input" />
                             </div>
                             <h5><a href="signup.jsp">Đăng kí?</a></h5>
-                            
+
                             <button type="submit" value="Submit" class="primary-btn order-submit">ĐĂNG NHẬP</button>
                         </form>
 
@@ -67,6 +67,7 @@
                 </div>
             </div>
         </div>
+        <jsp:include page="footer.jsp"></jsp:include>
         <script src="js/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/slick.min.js"></script>

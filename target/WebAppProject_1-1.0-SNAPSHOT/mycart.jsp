@@ -16,7 +16,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
         <title>Giỏ hàng</title>
         <!-- Google font -->
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
@@ -36,36 +36,37 @@
         <%
             String username = null;
             Cookie[] cookies = request.getCookies();
-            if(cookies !=null){
-                for(Cookie cookie : cookies){
-                    if(cookie.getName().equals("username")) 
+            if (cookies != null) {
+                for (Cookie cookie : cookies) {
+                    if (cookie.getName().equals("username")) {
                         username = cookie.getValue();
+                    }
                 }
             }
-            
+
             UserDAOImple userDAO = new UserDAOImple();
             int id = userDAO.getUser(username).getMa_nguoi_dung();
-            
-            String messager ="";
+
+            String messager = "";
             if (request.getAttribute("messager") != null) {
                 messager = (String) request.getAttribute("messager");
-            }           
+            }
         %>
         <jsp:include page="header.jsp"></jsp:include>
-        <div class="section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h3 class="section-title">GIỎ HÀNG</h3>
-                        <% if(messager != "") { %>
-                            <div class="alert alert-info"><%=messager%></div>
+            <div class="section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h3 class="section-title">GIỎ HÀNG</h3>
+                        <% if (messager != "") {%>
+                        <div class="alert alert-info"><%=messager%></div>
                         <% } %>
                         <table class="table">            
                             <thead>
                                 <tr>
                                     <th class="text-center">STT</th>
                                     <th class="text-center">Tên sản phẩm</th>
-                                    <th class="text-center">Ngày thêm</th>
+                                    <th class="text-center">Giá sản phẩm</th>
                                     <th class="text-center">Số lượng</th>
                                     <th class="text-center">Tổng tiền</th>
                                     <th class="text-center">Huỷ đơn hàng</th>
@@ -80,13 +81,13 @@
                                 <tr>
                                     <td><%=i%></td>
                                     <td><%=c.getTen_san_pham()%></td>                                                  
-                                    <td><%=c.getNgay_mua()%></td>
+                                    <td><%=c.getGia_ban()%> VNĐ</td>
                                     <td><%=c.getSo_luong()%></td>
-                                    <td><%=(int)c.getThanh_tien()%> VNĐ</td>
-                                    <% if(c.getTrang_thai().length() == 10) { %>
+                                    <td><%=(int) (c.getGia_ban() * c.getSo_luong())%> VNĐ</td>
+                                    <% if (c.getTrang_thai().equals("ĐANG CHỜ")) {%>
                                     <td>
                                         <form action="DeleteCart" method="post">
-                                            <input type="hidden" value="<%=c.getId_order()%>" name="id_cart" />                                           
+                                            <input type="hidden" value="<%=c.getMa_san_pham()%>" name="ma_san_pham" />                                           
                                             <button class="primary-btn">
                                                 <span></span>Huỷ
                                             </button>
@@ -95,15 +96,16 @@
                                     <% } %>
                                 </tr>
                             </tbody>
-                            <% 
-                                i++; 
-                            }    
+                            <%
+                                    i++;
+                                }
                             %>
                         </table>
                     </div>
                 </div>
             </div>
         </div>
+        <jsp:include page="footer.jsp"></jsp:include>
         <script src="js/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/slick.min.js"></script>

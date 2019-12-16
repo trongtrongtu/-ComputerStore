@@ -91,7 +91,7 @@
                 </div>
             </div>
 
-            <nav id="navigation" style="background-color: #d10024">
+            <nav id="navigation" style="background-color: #5d3a3a">
                 <div class="container">
                     <div id="responsive-nav">
                         <ul class="main-nav nav navbar-nav">
@@ -183,11 +183,11 @@
                 </div>
             </div>
 
-            <nav id="navigation" style="background-color: #d10024">
+            <nav id="navigation" style="background-color: #5d3a3a">
                 <div class="container">
                     <div id="responsive-nav">
                         <ul class="main-nav nav navbar-nav">
-                            <li><a style="color: white;" href="index.jsp">TRANG CHỦ</a></li>
+                            <li><a style="color: white" href="index.jsp">TRANG CHỦ</a></li>
                             <li><a style="color: white" href="apple.jsp">APPLE</a></li>
                             <li><a style="color: white" href="hp.jsp">HP</a></li>
                             <li><a style="color: white" href="asus.jsp">ASUS</a></li>

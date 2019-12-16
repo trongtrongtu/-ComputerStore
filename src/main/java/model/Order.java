@@ -17,6 +17,8 @@ public class Order {
     private int ma_nguoi_dung;
     private int ma_san_pham;
     private String ten_san_pham;
+    private String hinh_anh_1;
+    private int gia_ban;
     private String username_order;
     private String diachi_order;
     private int sdt_order;
@@ -54,13 +56,14 @@ public class Order {
         this.trang_thai = trang_thai;
     }
     
-    public Order(int ma_nguoi_dung, int ma_san_pham, String ten_san_pham, Date ngay_mua, int so_luong, int thanh_tien, String trang_thai) {
+    public Order(int ma_nguoi_dung, int ma_san_pham, String ten_san_pham, String hinh_anh_1, Date ngay_mua, int so_luong, int gia_ban, String trang_thai) {
         this.ma_nguoi_dung = ma_nguoi_dung;
         this.ma_san_pham = ma_san_pham;
         this.ten_san_pham = ten_san_pham;
+        this.hinh_anh_1 = hinh_anh_1;
         this.ngay_mua = ngay_mua;
         this.so_luong = so_luong;
-        this.thanh_tien = thanh_tien;
+        this.gia_ban = gia_ban;
         this.trang_thai = trang_thai;
     }
 
@@ -82,6 +85,13 @@ public class Order {
     }
     public String getTen_san_pham(){
         return ten_san_pham;
+    }
+    public String getHinh_anh_1(){
+        return hinh_anh_1;
+    }
+    
+    public int getGia_ban(){
+        return gia_ban;
     }
     
     public String getUsername_order(){
@@ -121,6 +131,10 @@ public class Order {
     
     public void setTen_san_pham(String ten_san_pham){
         this.ten_san_pham = ten_san_pham;
+    }
+    
+    public void setGia_ban(int gia_ban) {
+        this.gia_ban = gia_ban;
     }
     
     public void setUsername_order(String username_order) {

@@ -121,6 +121,7 @@
         <%
             }
         %>
+        <jsp:include page="footer.jsp"></jsp:include>
         <script src="js/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/slick.min.js"></script>

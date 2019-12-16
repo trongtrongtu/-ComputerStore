@@ -5,13 +5,16 @@
  */
 package controller;
 
+import dao.CartDAOImple;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Order;
 
 /**
  *
@@ -20,69 +23,31 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "Cart", urlPatterns = {"/Cart"})
 public class Cart extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try ( PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet Cart</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet Cart at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
+    private static final long serialVersionUID = 1L;
+
+    public Cart() {
+        super();
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
+    protected void doPost(HttpServletRequest request,
+            HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("utf-8");
+        response.setCharacterEncoding("utf-8");
+        String ma_nguoi_dung = request.getParameter("ma_nguoi_dung");
+        String ma_san_pham = request.getParameter("ma_san_pham");
+        String ten_san_pham = request.getParameter("ten_san_pham");
+        String hinh_anh_1 = request.getParameter("hinh_anh_1");
+        int so_luong = Integer.parseInt(request.getParameter("so_luong"));
+        long millis = System.currentTimeMillis();
+        java.sql.Date ngay_mua = new java.sql.Date(millis);
+        int tong_tien = (int) Integer.parseInt(request.getParameter("gia_ban"));
+        Order c = new Order(Integer.parseInt(ma_nguoi_dung), Integer.parseInt(ma_san_pham), ten_san_pham, hinh_anh_1 , ngay_mua, so_luong, tong_tien, "ĐANG CHỜ");
+        CartDAOImple cartDAO = new CartDAOImple();
+        cartDAO.addCart(c);
+        String url = "/mycart.jsp";
+        RequestDispatcher rd = getServletContext().getRequestDispatcher(url);
+        rd.forward(request, response);
+
     }
-
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-    }
-
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
-
 }

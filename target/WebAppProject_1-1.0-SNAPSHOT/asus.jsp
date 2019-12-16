@@ -30,19 +30,19 @@
         <link type="text/css" rel="stylesheet" href="css/style.css"/>
     </head>
     <body>
-         <jsp:include page="header.jsp"></jsp:include>
-        <div class="section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">                      
-                        <div class="col-md-12">
-                            <div class="section-title">
-                                <h2 class="title">Asus</h2>                                
-                            </div>
-                            <div class="row">
-                                <div class="products-tabs">
-                                    <div id="tab1" class="tab-pane active">
-                                        <div class="products-slick" data-nav="#slick-nav-1">
+        <jsp:include page="header.jsp"></jsp:include>
+            <div class="section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">                      
+                            <div class="col-md-12">
+                                <div class="section-title">
+                                    <h2 class="title">Asus</h2>                                
+                                </div>
+                                <div class="row">
+                                    <div class="products-tabs">
+                                        <div id="tab1" class="tab-pane active">
+                                            <div class="products-slick" data-nav="#slick-nav-1">
                                             <%
                                                 ProductDAOImple productDAO1 = new ProductDAOImple();
                                                 for (Product p : productDAO1.getListByCategory(3)) {
@@ -78,6 +78,7 @@
                 </div>
             </div>
         </div>
+        <jsp:include page="footer.jsp"></jsp:include>
         <script src="js/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/slick.min.js"></script>

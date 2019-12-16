@@ -70,18 +70,18 @@
                         <div class="col-md-5 col-md-push-2">
                             <div id="product-main-img">
                                 <div class="product-preview">
-                                    <img style="height: 458px; width: 458px" src="image/<%=ten_ma_loai_san_pham%>/<%=productDAO.getProduct(Integer.parseInt(ma_san_pham))
-                                             .getHinh_anh_1()%>" alt="">
+                                     <img style="height: 458px; width: 458px" src="image/<%=ten_ma_loai_san_pham%>/<%=productDAO.getProduct(Integer.parseInt(ma_san_pham))
+                                            .getHinh_anh_1()%>" alt="">
                             </div>
                             <div class="product-preview">
-                                <img style="height: 458px; width: 458px" src="image/<%=ten_ma_loai_san_pham%>/<%=productDAO.getProduct(Integer.parseInt(ma_san_pham))
-                                         .getHinh_anh_2()%>" alt="">
+                                 <img style="height: 458px; width: 458px" src="image/<%=ten_ma_loai_san_pham%>/<%=productDAO.getProduct(Integer.parseInt(ma_san_pham))
+                                        .getHinh_anh_2()%>" alt="">
                             </div>
                             <div class="product-preview">
-                                <img style="height: 458px; width: 458px" src="image/<%=ten_ma_loai_san_pham%>/<%=productDAO.getProduct(Integer.parseInt(ma_san_pham))
-                                         .getHinh_anh_3()%>" alt="">
+                                 <img style="height: 458px; width: 458px" src="image/<%=ten_ma_loai_san_pham%>/<%=productDAO.getProduct(Integer.parseInt(ma_san_pham))
+                                        .getHinh_anh_3()%>" alt="">
                             </div>
-                            
+
 
                         </div>   
                     </div>    
@@ -89,33 +89,33 @@
                         <div id="product-imgs">
                             <div class="product-preview">
                                  <img style="height: 153px; width: 153px" src="image/<%=ten_ma_loai_san_pham%>/<%=productDAO.getProduct(Integer.parseInt(ma_san_pham))
-                                        .getHinh_anh_1()%>" alt="">
+                                         .getHinh_anh_1()%>" alt="">
                             </div>
                             <div class="product-preview">
                                  <img style="height: 153px; width: 153px" src="image/<%=ten_ma_loai_san_pham%>/<%=productDAO.getProduct(Integer.parseInt(ma_san_pham))
-                                        .getHinh_anh_2()%>" alt="">
+                                         .getHinh_anh_2()%>" alt="">
                             </div>
                             <div class="product-preview">
                                  <img style="height: 153px; width: 153px" src="image/<%=ten_ma_loai_san_pham%>/<%=productDAO.getProduct(Integer.parseInt(ma_san_pham))
-                                        .getHinh_anh_3()%>" alt="">
+                                         .getHinh_anh_3()%>" alt="">
                             </div>
-                            
-                            
+
+
                         </div>
                     </div>
 
 
                     <div class="col-md-5">
-                        
+
                         <div class="product-details">
                             <h2 class="product-name"><%=productDAO.getProduct(Integer.parseInt(ma_san_pham)).getTen_san_pham()%></h2>
-                            
+
                             <div>
                                 <h3 class="product-price"><%=formatter.format(productDAO.getProduct(Integer.parseInt(ma_san_pham)).getGia_ban())%> VNĐ</h3>
-                                
+
                             </div>          
-                                <h5>Chọn số lượng:</h5>
-                            <form  action="mycart.jsp">
+                            <h5>Chọn số lượng:</h5>
+                            <form  action="Cart" method="post">
                                 <input type="hidden" value="<%=id%>" name="ma_nguoi_dung"/>
                                 <input type="hidden" value="<%=ma_san_pham%>" name="ma_san_pham" />
                                 <input type="hidden" value="<%=productDAO.getProduct(Integer.parseInt(ma_san_pham)).getTen_san_pham()%>" name="ten_san_pham" />
@@ -128,7 +128,7 @@
                                     <button style="color: #d10a00; border: solid; border-color:#d10a00; background-color: white; border-width: 1px" class="primary-btn order-submit">THÊM VÀO GIỎ HÀNG</button>
                                 </div>
                             </form>
-                            
+
                             <ul class="product-links">
                                 <li>Chia sẻ:</li>
                                 <li><a href="https://www.facebook.com"><i class="fa fa-facebook"></i></a></li>
@@ -137,8 +137,8 @@
                                 <li><a href="https://mail.google.com/mail"><i class="fa fa-envelope"></i></a></li>
                             </ul>
                         </div>
-                        
-                                                
+
+
                     </div>
 
                     <div class="col-md-12">
@@ -171,6 +171,7 @@
                 </div>
             </div>
         </div>
+        <jsp:include page="footer.jsp"></jsp:include>
         <script src="js/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/slick.min.js"></script>

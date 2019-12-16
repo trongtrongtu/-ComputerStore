@@ -47,9 +47,9 @@
                             <div class="footer" style="background-color: #1f2c34">
                                 <h3 class="footer-title" style="color: #337ab7">THÔNG TIN</h3>
                                 <ul class="footer-links">
-                                    <li><a style="color: #337ab7"><i class="fa fa-phone"></i> 0365.391.481</a></li>
-                                    <li><a style="color: #337ab7"><i class="fa fa-envelope-o"></i> tu.nt173432@sis.hust.edu.vn</a></li>
-                                    <li><a style="color: #337ab7"><i class="fa fa-map-marker"></i> Số 1, Đại Cồ Việt, Hai Bà Trưng, Hà Nội</a></li>
+                                    <li><a style="color: #337ab7"><i class="fa fa-phone"></i>0365.391.481</a></li>
+                                    <li><a style="color: #337ab7"><i class="fa fa-envelope-o"></i>tu.nt173432@sis.hust.edu.vn</a></li>
+                                    <li><a style="color: #337ab7"><i class="fa fa-map-marker"></i>Số 1, Đại Cồ Việt, Hai Bà Trưng, Hà Nội</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -58,10 +58,10 @@
                             <div class="footer" style="background-color: #1f2c34">
                                 <h3 class="footer-title" style="color: #337ab7">HÃNG SẢN XUẤT</h3>
                                 <ul class="footer-links">
-                                    <li><a style="color: #337ab7" href="laptop.jsp">Apple</a></li>
-                                    <li><a style="color: #337ab7" href="smartphone.jsp">Hp</a></li>
-                                    <li><a style="color: #337ab7" href="camera.jsp">Asus</a></li>
-                                    <li><a style="color: #337ab7" href="tablet.jsp">Dell</a></li>
+                                    <li><a style="color: #337ab7" href="apple.jsp">Apple</a></li>
+                                    <li><a style="color: #337ab7" href="hp.jsp">Hp</a></li>
+                                    <li><a style="color: #337ab7" href="asus.jsp">Asus</a></li>
+                                    <li><a style="color: #337ab7" href="dell.jsp">Dell</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -74,7 +74,7 @@
                                 <ul class="footer-links">
                                     <li><a style="color: #337ab7" href="https://www.facebook.com/">Về chúng tôi</a></li>
                                     <li><a style="color: #337ab7" href="https://www.facebook.com/">Liên hệ</a></li>
-                                    <li><a style="color: #337ab7" href="feedback.jsp">Phản hồi</a></li>
+                                    <li><a style="color: #337ab7" href="https://www.facebook.com/">Phản hồi</a></li>
                                     <li><a style="color: #337ab7" href="https://www.facebook.com/">Chính sách và Điều khoản</a></li>
                                 </ul>
                             </div>
@@ -91,9 +91,9 @@
                                     <li><a style="color: #337ab7" href="signin.jsp">Giúp đỡ</a></li>
                                         <% } else { %>
                                     <li><a style="color: #337ab7" href="myaccount.jsp">Tài khoản của tôi</a></li>
-                                    <li><a style="color: #337ab7" href="yourcart.jsp">Giỏ hàng</a></li>
-                                    <li><a style="color: #337ab7" href="yourwishlist.jsp">Lịch sử mua hàng</a></li>
-                                    <li><a style="color: #337ab7" href="feedback.jsp">Giúp đỡ</a></li>
+                                    <li><a style="color: #337ab7" href="mycart.jsp">Giỏ hàng</a></li>
+                                    <li><a style="color: #337ab7" href="order.jsp">Lịch sử mua hàng</a></li>
+                                    <li><a style="color: #337ab7" href="https://www.facebook.com/">Giúp đỡ</a></li>
                                         <% }%>
                                 </ul>
                             </div>
@@ -101,13 +101,12 @@
                     </div>
                 </div>                        
             </div>
-            <br>
             <div id="bottom-footer" class="section">
                 <div class="container">                          
                     <div class="row">
                         <div class="col-md-12 text-center">
                             <span class="copyright" style="color: #337ab7">                  
-                                Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://facebook.com" target="_blank">TrongTu</a>                           
+                                Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://facebook.com" target="_blank" style="color: #337ab7">TrongTu</a>                           
                             </span>
                         </div>
                     </div>                                       

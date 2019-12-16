@@ -1,4 +1,5 @@
 controller\Cart.class
+controller\DeleteCart.class
 dao\CartDAO.class
 conn\ConnectionDB.class
 dao\UserDAOImple.class
@@ -14,6 +15,7 @@ controller\admin\ProductAddAdmin.class
 controller\admin\ProductListAdmin.class
 controller\ProductDetail.class
 controller\Home.class
+controller\SignoutServlet.class
 model\User.class
 dao\ProductDAOImple.class
 controller\admin\ProductDeleteAdmin.class
