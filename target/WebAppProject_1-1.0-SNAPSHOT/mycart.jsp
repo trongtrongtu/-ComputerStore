@@ -57,7 +57,6 @@
             }
         %>
         <jsp:include page="header.jsp"></jsp:include>
-    <c:set value="${0}" var="total" />
     <div class="section">
         <div class="container">
             <div class="row">
@@ -70,7 +69,7 @@
                         <thead>
                             <tr>
                                 <th class="text-center">STT</th>
-                                <th></th>
+                                <th class="text-center">Hình ảnh</th>
                                 <th class="text-center">Tên sản phẩm</th>
                                 <th class="text-center">Giá sản phẩm</th>
                                 <th class="text-center">Số lượng</th>
@@ -84,6 +83,7 @@
                                     CartItem cart = (CartItem) session.getAttribute("cart");
                                     List<Cart> items = cart.getItems();
                                     for (Cart p : items) {
+                                        DecimalFormat formatter = new DecimalFormat("###,###,###");
                             %>
                             <tr>
                                 <td><%=i%></td>
@@ -113,7 +113,7 @@
                                     <h5><%=p.getProduct().getTen_san_pham()%></h5>
                                 </td>
                                 <td class="price">
-                                    <span><%=p.getProduct().getGia_ban()%></span>
+                                    <span><%=formatter.format(p.getProduct().getGia_ban())%> VNĐ</span>
                                 </td>
                                 <td class="qty">
                                     <div class="qty-btn d-flex">
@@ -129,6 +129,7 @@
                                     <% if (i > 1) {
                                     %>   
                                     <form action="DeleteCart" method="post">  
+                                        <input type="hidden" value="<%=p.getProduct().getMa_san_pham()%>" name="ma_san_pham" />
                                         <button class="primary-btn">
                                             <span>Huỷ</span>
                                         </button>
@@ -160,6 +161,17 @@
                             %>
                             <div style="font-family:Arial; font-size: 20px"><span>Tổng tiền: </span> <span class="product-price"><%=formatter.format(subTotal)%> VNĐ</span></div>
                             <br>
+                            <%
+                                if (username == null) {
+                            %>
+                            <div class="cart-btn mt-100">
+                                <form  action="/WebAppProject_1/login.jsp">
+                                    <div class="form-group">
+                                        <button class="primary-btn order-submit">Đặt hàng</button>
+                                    </div>
+                                </form>
+                            </div>
+                            <%} else {%>
                             <div class="cart-btn mt-100">
                                 <form  action="/WebAppProject_1/order_information.jsp">
                                     <div class="form-group">
@@ -167,7 +179,10 @@
                                     </div>
                                 </form>
                             </div>
-                            <%}%>
+                            <%
+                                    }
+                                }
+                            %>
                         </ul>
                     </div>
                 </div>

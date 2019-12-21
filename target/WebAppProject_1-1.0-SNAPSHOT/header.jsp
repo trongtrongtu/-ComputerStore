@@ -164,7 +164,7 @@
 
                                 %>
                                 <div>
-                                    <a href="yourwishlist.jsp">
+                                    <a href="orderhistory.jsp">
                                         <i class="fa fa-heart-o"></i>
                                         <span>Lịch sử mua hàng</span>
 

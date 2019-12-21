@@ -19,10 +19,10 @@ public interface CartDAO {
     public void addCart(Order c);
     
     // thêm Order
-    public void addOrder(Order c, int id_order);
+    public void addOrder(int id_order, int ma_san_pham, int so_luong);
     
     // hiển thị id_order
-    public int getIdOrder(int ma_nguoi_dung);
+    public int getIdOrder(int ma_nguoi_dung, String username_order, String diachi_order, int sdt_order);
 
     // hiển thị danh sách Order
     public List<Order> getListCart(int id);

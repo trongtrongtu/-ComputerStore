@@ -71,15 +71,15 @@
                             <div id="product-main-img">
                                 <div class="product-preview">
                                      <img style="height: 458px; width: 458px" src="image/<%=ten_ma_loai_san_pham%>/<%=productDAO.getProduct(Integer.parseInt(ma_san_pham))
-                                            .getHinh_anh_1()%>" alt="">
+                                             .getHinh_anh_1()%>" alt="">
                             </div>
                             <div class="product-preview">
                                  <img style="height: 458px; width: 458px" src="image/<%=ten_ma_loai_san_pham%>/<%=productDAO.getProduct(Integer.parseInt(ma_san_pham))
-                                        .getHinh_anh_2()%>" alt="">
+                                         .getHinh_anh_2()%>" alt="">
                             </div>
                             <div class="product-preview">
                                  <img style="height: 458px; width: 458px" src="image/<%=ten_ma_loai_san_pham%>/<%=productDAO.getProduct(Integer.parseInt(ma_san_pham))
-                                        .getHinh_anh_3()%>" alt="">
+                                         .getHinh_anh_3()%>" alt="">
                             </div>
 
 
@@ -88,15 +88,15 @@
                     <div class="col-md-2  col-md-pull-5">
                         <div id="product-imgs">
                             <div class="product-preview">
-                                 <img style="height: 153px; width: 153px" src="image/<%=ten_ma_loai_san_pham%>/<%=productDAO.getProduct(Integer.parseInt(ma_san_pham))
+                                <img style="height: 153px; width: 153px" src="image/<%=ten_ma_loai_san_pham%>/<%=productDAO.getProduct(Integer.parseInt(ma_san_pham))
                                          .getHinh_anh_1()%>" alt="">
                             </div>
                             <div class="product-preview">
-                                 <img style="height: 153px; width: 153px" src="image/<%=ten_ma_loai_san_pham%>/<%=productDAO.getProduct(Integer.parseInt(ma_san_pham))
+                                <img style="height: 153px; width: 153px" src="image/<%=ten_ma_loai_san_pham%>/<%=productDAO.getProduct(Integer.parseInt(ma_san_pham))
                                          .getHinh_anh_2()%>" alt="">
                             </div>
                             <div class="product-preview">
-                                 <img style="height: 153px; width: 153px" src="image/<%=ten_ma_loai_san_pham%>/<%=productDAO.getProduct(Integer.parseInt(ma_san_pham))
+                                <img style="height: 153px; width: 153px" src="image/<%=ten_ma_loai_san_pham%>/<%=productDAO.getProduct(Integer.parseInt(ma_san_pham))
                                          .getHinh_anh_3()%>" alt="">
                             </div>
 
@@ -120,12 +120,14 @@
                                 <input type="hidden" value="<%=ma_san_pham%>" name="ma_san_pham" />
                                 <input type="hidden" value="<%=productDAO.getProduct(Integer.parseInt(ma_san_pham)).getTen_san_pham()%>" name="ten_san_pham" />
                                 <div class="form-group">
-                                    <input type="number" min="1" value="1" class="input" name="so_luong" />
+                                    <input type="number" min="1" value="1" class="input" name="so_luong"onfocus="this.value = '';"
+                                           onblur="if (this.value == '') {
+                                                       this.value = '1';
+                                                   }">
                                 </div>                            
                                 <input type="hidden" value="<%=(int) productDAO.getProduct(Integer.parseInt(ma_san_pham)).getGia_ban()%>" name="gia_ban" />
                                 <div class="form-group">
-                                    <button style="background-color: #d10a00; border: solid; border-color:#d10a00; color: white; border-width: 1px" class="primary-btn order-submit">MUA NGAY</button>
-                                    <button style="color: #d10a00; border: solid; border-color:#d10a00; background-color: white; border-width: 1px" class="primary-btn order-submit">THÊM VÀO GIỎ HÀNG</button>
+                                    <button style="background-color: #d10a00; border: solid; border-color:#d10a00; color: white; border-width: 1px" class="primary-btn order-submit">THÊM VÀO GIỎ HÀNG</button>
                                 </div>
                             </form>
 
