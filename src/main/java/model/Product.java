@@ -40,6 +40,16 @@ public class Product {
         this.chi_tiet_san_pham = chi_tiet_san_pham;
         this.mo_ta = mo_ta;
     }
+    
+    public Product(int ma_san_pham, int ma_loai_san_pham, String ten_san_pham, String hinh_anh_1, String hinh_anh_2, String hinh_anh_3, int gia_ban) {
+        this.ma_san_pham = ma_san_pham;
+        this.ma_loai_san_pham = ma_loai_san_pham;
+        this.ten_san_pham = ten_san_pham;
+        this.hinh_anh_1 = hinh_anh_1;
+        this.hinh_anh_2 = hinh_anh_2;
+        this.hinh_anh_3 = hinh_anh_3;
+        this.gia_ban = gia_ban;
+    }
 
     public int getGia_ban() {
         return gia_ban;

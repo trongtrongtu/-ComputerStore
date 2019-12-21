@@ -34,5 +34,8 @@ public interface ProductDAO {
 	
         // lấy danh sách sản phẩm theo tên sản phẩm dựa vào keyword
 	public List<Product> searchList(String keyword);
+        
+        // lấy danh sách sản phẩm theo tên sản phẩm dựa vào keyword
+        public List<Product> searchList(int loai_san_pham, String keyword);
 
 }

@@ -140,6 +140,51 @@ public class ProductDAOImple implements ProductDAO {
         }
         return list;
     }
+    
+    @Override
+    public List<Product> searchList(int loai_san_pham, String keyword) {
+        keyword = '%' + keyword + '%';
+        String sql = "";
+        if(loai_san_pham == 0){
+            sql = "SELECT * FROM PRODUCT WHERE ten_san_pham LIKE '" + keyword + "';";
+        }
+        else if(loai_san_pham == 1){
+            sql = "SELECT * FROM PRODUCT WHERE ma_loai_san_pham = 1 AND ten_san_pham LIKE '" + keyword + "';";
+        }
+        else if(loai_san_pham == 2){
+            sql = "SELECT * FROM PRODUCT WHERE ma_loai_san_pham = 2 AND ten_san_pham LIKE '" + keyword + "';";
+        }
+        else if(loai_san_pham == 3){
+            sql = "SELECT * FROM PRODUCT WHERE ma_loai_san_pham = 3 AND ten_san_pham LIKE '" + keyword + "';";
+        }
+        else if(loai_san_pham == 4){
+            sql = "SELECT * FROM PRODUCT WHERE ma_loai_san_pham = 4 AND ten_san_pham LIKE '" + keyword + "';";
+        }
+        else {
+            sql = "SELECT * FROM PRODUCT WHERE ma_loai_san_pham = 5 AND ten_san_pham LIKE '" + keyword + "';";
+        }
+        List<Product> list = new ArrayList<Product>();
+        try {
+            Connection con = ConnectionDB.getConnectionDB();
+            PreparedStatement ps = (PreparedStatement) con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                int ma_san_pham = rs.getInt("ma_san_pham");
+                int ma_loai_san_pham = rs.getInt("ma_loai_san_pham");
+                String ten_san_pham = rs.getString("ten_san_pham");
+                String hinh_anh_1 = rs.getString("hinh_anh_1");
+                String hinh_anh_2 = rs.getString("hinh_anh_2");
+                String hinh_anh_3 = rs.getString("hinh_anh_3");
+                int gia_ban = rs.getInt("gia_ban");
+                list.add(new Product(ma_san_pham, ma_loai_san_pham, ten_san_pham, hinh_anh_1, hinh_anh_2, hinh_anh_3, gia_ban));
+            }
+            con.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+    
     @Override
     public void removeProduct(int ma_san_pham) {     
         String sql = "DELETE FROM PRODUCT WHERE ma_san_pham='" + ma_san_pham + "';";
