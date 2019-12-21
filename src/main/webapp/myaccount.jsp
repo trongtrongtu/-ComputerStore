@@ -38,6 +38,10 @@
             if (request.getAttribute("error") != null) {
                 error = (String) request.getAttribute("error");
             }
+            String message = "";
+            if (request.getAttribute("message") != null) {
+                message = (String) request.getAttribute("message");
+            }
 
             String username = null;
             Cookie[] cookies = request.getCookies();
@@ -58,7 +62,14 @@
                     <div class="col-md-6 center-block">
                         <form action="MyAccount" method="post" class="billing-details" >
                             <h3 class="section-title">TÀI KHOẢN</h3>
-                            <div style="color: red"><%=error%></div> 
+                            <% if (error != "") {%>
+                            <div class="alert alert-danger"><%=error%></div>
+                            <% }
+                                if (message != "") {%>
+                            <div class="alert alert-info"><%=message%></div>
+                            <% }%>
+
+                            <input type="hidden" name ="role" value="<%=u.getRo_le()%>" />
                             <div class="form-group">
                                 <label>Tên đăng nhập:</label>
                                 <input class="input" type="text" readonly name="username" value="<%=u.getUser__name()%>" >
@@ -104,16 +115,94 @@
                                                }" name="address">
                             </div>
                             <div class="form-group">
-                                <label>Mật khẩu:</label>
-                                <input class="input" type="text" value="<%= u.getPass_word()%>" onfocus="this.value = '';"
+                                <input class="input" type="hidden" value="<%= u.getPass_word()%>" onfocus="this.value = '';"
                                        onblur="if (this.value == '') {
                                                    this.value = '<%=u.getPass_word()%>';
                                                }" name="password">
-                            </div>          
+                            </div>    
                             <div class="form-group">
                                 <button type="submit" value="myaccount" class="primary-btn order-submit">LƯU</button>
                             </div>
                         </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%
+        } else {
+        %>
+        <div class="section">
+            <div class="container" style="width: 100%">
+                <div class="row">
+                    <div class="col-md-3">
+                        <jsp:include page="taskadmin.jsp"></jsp:include>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="col-md-7 center-block">
+                                <form action="MyAccount" method="post" class="billing-details" >
+                                    <h3 class="section-title">TÀI KHOẢN</h3>
+                                <% if (error != "") {%>
+                                <div class="alert alert-danger"><%=error%></div>
+                                <% }
+                                    if (message != "") {%>
+                                <div class="alert alert-info"><%=message%></div>
+                                <% }%>
+                                <input type="hidden" name ="role" value="<%=u.getRo_le()%>" />
+                                <div class="form-group">
+                                    <label>Tên đăng nhập:</label>
+                                    <input class="input" type="text" readonly name="username" value="<%=u.getUser__name()%>" >
+                                </div>
+                                <div class="form-group">
+                                    <label>Email:</label>
+                                    <input class="input" type="text" readonly name="email" value="<%=u.getEmail()%>" >
+                                </div>
+                                <div class="form-group">
+                                    <label>Giới tính:</label>
+                                    <input class="input" type="text" value="<%=u.getGioi_tinh()%>"
+                                           list="exampleList" onfocus="this.value = '';"
+                                           onblur="if (this.value == '') {
+                                                       this.value = '<%=u.getGioi_tinh()%>';
+                                                   }"
+                                           name="sex"> 
+                                    <datalist id="exampleList">
+                                        <option value="Nam">
+                                        <option value="Nữ">
+                                    </datalist>
+                                </div>
+                                <div class="form-group">
+                                    <label>Ngày sinh:</label>
+                                    <input class="input" type="date" value="<%=u.getNgay_sinh()%>"
+                                           onfocus="this.value = '';"
+                                           onblur="if (this.value == '') {
+                                                       this.value = '<%=u.getNgay_sinh()%>';
+                                                   }"
+                                           name="date" >
+                                </div>
+                                <div class="form-group">
+                                    <label>Số điện thoại:</label>
+                                    <input class="input" type="text" value="<%= u.getSdt()%>" onfocus="this.value = '';"
+                                           onblur="if (this.value == '') {
+                                                       this.value = '<%=u.getSdt()%>';
+                                                   }" name="phone">
+                                </div>
+                                <div class="form-group">
+                                    <label>Địa chỉ:</label>
+                                    <input class="input" type="text" value="<%= u.getDia_chi()%>" onfocus="this.value = '';"
+                                           onblur="if (this.value == '') {
+                                                       this.value = '<%=u.getDia_chi()%>';
+                                                   }" name="address">
+                                </div>
+                                <div class="form-group">                               
+                                    <input class="input" type="hidden" value="<%= u.getPass_word()%>" onfocus="this.value = '';"
+                                           onblur="if (this.value == '') {
+                                                       this.value = '<%=u.getPass_word()%>';
+                                                   }" name="password">
+                                </div>      
+                                <div class="form-group">
+                                    <button type="submit" value="myaccount" class="primary-btn order-submit">LƯU</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>

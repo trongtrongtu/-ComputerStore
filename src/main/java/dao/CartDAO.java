@@ -35,8 +35,17 @@ public interface CartDAO {
 
     // danh sách tất cả đơn hàng theo thể loại
     public List<CartAdmin> getListCartAdminCategory(int id);
+    
+    // danh sách tất cả đơn hàng theo thể loại
+    public List<CartAdmin> getListCartAdminCategory(int id, int tuy_chon);
+    
+    // danh sách tất cả đơn hàng theo tùy chọn
+    public List<CartAdmin> getListCartAdmin(int tuy_chon);
 
     // thay đổi trạng thái đơn hàng
     public void editCartAdmin(int id_cart, String trang_thai);
+    
+    //danh sách đơn hàng
+    public CartAdmin getCart(int id);
 
 }

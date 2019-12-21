@@ -87,12 +87,6 @@
                                     <input type="file" name="hinh_anh_3" />
                                 </div>
                                 <div class="form-group">
-                                    <label>Màu sắc:</label>
-                                    <input class="input" type="text" name="mau_sac_1" placeholder="Màu sắc" />
-                                    <input class="input" type="text" name="mau_sac_1" placeholder="Màu sắc" />
-                                    <input class="input" type="text" name="mau_sac_1" placeholder="Màu sắc" />
-                                </div>
-                                <div class="form-group">
                                     <label>Giá bán:</label>
                                     <input class="input" type="text" name="gia_ban" placeholder="VNĐ" />
                                 </div>     

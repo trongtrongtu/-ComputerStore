@@ -25,9 +25,15 @@ public interface ProductDAO {
 
 	// hiển thị danh sách sản phẩm
 	public List<Product> getList();
+        
+        // lấy danh sách sản phẩm dựa vào từ
+        public List<Product> getList(int tuy_chon);
 
 	// lấy danh sách sản phẩm dựa vào thể loại
 	public List<Product> getListByCategory(int idCategory);
+        
+        // lấy danh sách sản phẩm dựa vào thể loại
+        public List<Product> getListByCategory(int id, int tuy_chon);
 	
         // lấy thông tin sản phẩm theo mã
 	public Product getProduct(int idProduct);

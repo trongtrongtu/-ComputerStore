@@ -13,7 +13,7 @@ import java.sql.Date;
 
 public class CartAdmin {
 
-    private int id_cart;
+    private int id_order;
     private int ma_san_pham;
     private String ten_san_pham;
     private int ma_loai_san_pham;
@@ -22,16 +22,17 @@ public class CartAdmin {
     private int thanh_tien;
     private int ma_khach_hang;
     private String ten_khach_hang;
-    private String sdt;
-    private String dia_chi;
+    private String username_order;
+    private String sdt_order;
+    private String diachi_order;
     private Date ngay_mua;
     private String trang_thai;
 
     public CartAdmin() {
     }
 
-    public CartAdmin(int id_cart, int ma_san_pham, String ten_san_pham, int ma_loai_san_pham, int so_luong, int gia_ban, int thanh_tien, int ma_khach_hang, String ten_khach_hang, String sdt, String dia_chi, Date ngay_mua, String trang_thai) {
-        this.id_cart = id_cart;
+    public CartAdmin(int id_order, int ma_san_pham, String ten_san_pham, int ma_loai_san_pham, int so_luong, int gia_ban, int thanh_tien, int ma_khach_hang, String username_order, String sdt_order, String diachi_order, Date ngay_mua, String trang_thai) {
+        this.id_order = id_order;
         this.ma_san_pham = ma_san_pham;
         this.ten_san_pham = ten_san_pham;
         this.ma_loai_san_pham = ma_loai_san_pham;
@@ -39,23 +40,23 @@ public class CartAdmin {
         this.gia_ban = gia_ban;
         this.thanh_tien = thanh_tien;
         this.ma_khach_hang = ma_khach_hang;
-        this.ten_khach_hang = ten_khach_hang;
-        this.sdt = sdt;
-        this.dia_chi = dia_chi;
+        this.username_order = username_order;
+        this.sdt_order = sdt_order;
+        this.diachi_order = diachi_order;
         this.ngay_mua = ngay_mua;
         this.trang_thai = trang_thai;
     }
 
-    public String getDia_chi() {
-        return dia_chi;
+    public String getDiachi_order() {
+        return diachi_order;
     }
 
     public int getGia_ban() {
         return gia_ban;
     }
 
-    public int getId_cart() {
-        return id_cart;
+    public int getId_order() {
+        return id_order;
     }
 
     public int getMa_khach_hang() {
@@ -70,16 +71,16 @@ public class CartAdmin {
         return ngay_mua;
     }
 
-    public String getSdt() {
-        return sdt;
+    public String getSdt_order() {
+        return sdt_order;
     }
 
     public int getSo_luong() {
         return so_luong;
     }
 
-    public String getTen_khach_hang() {
-        return ten_khach_hang;
+    public String getUsername_order() {
+        return username_order;
     }
 
     public String getTen_san_pham() {
@@ -94,16 +95,16 @@ public class CartAdmin {
         return trang_thai;
     }
 
-    public void setDia_chi(String dia_chi) {
-        this.dia_chi = dia_chi;
+    public void setDia_chi(String diachi_order) {
+        this.diachi_order = diachi_order;
     }
 
     public void setGia_ban(int gia_ban) {
         this.gia_ban = gia_ban;
     }
 
-    public void setId_cart(int id_cart) {
-        this.id_cart = id_cart;
+    public void setId_cart(int id_order) {
+        this.id_order = id_order;
     }
 
     public void setMa_khach_hang(int ma_khach_hang) {
@@ -118,16 +119,16 @@ public class CartAdmin {
         this.ngay_mua = ngay_mua;
     }
 
-    public void setSdt(String sdt) {
-        this.sdt = sdt;
+    public void setSdt(String sdt_order) {
+        this.sdt_order = sdt_order;
     }
 
     public void setSo_luong(int so_luong) {
         this.so_luong = so_luong;
     }
 
-    public void setTen_khach_hang(String ten_khach_hang) {
-        this.ten_khach_hang = ten_khach_hang;
+    public void setUsername_order(String username_order) {
+        this.username_order = username_order;
     }
 
     public void setTen_san_pham(String ten_san_pham) {

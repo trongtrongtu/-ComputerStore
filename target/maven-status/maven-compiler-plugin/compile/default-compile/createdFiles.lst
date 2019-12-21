@@ -7,7 +7,6 @@ dao\UserDAOImple.class
 controller\MyAccount.class
 controller\SignupServlet.class
 controller\admin\UserEditAdmin.class
-controller\ProductSeachByName.class
 model\Product.class
 dao\UserDAO.class
 model\CartAdmin.class
@@ -15,7 +14,6 @@ controller\admin\HomeAdmin.class
 controller\admin\ProductAddAdmin.class
 controller\admin\ProductListAdmin.class
 controller\ProductDetail.class
-controller\Home.class
 controller\SignoutServlet.class
 model\User.class
 dao\ProductDAOImple.class
@@ -27,11 +25,9 @@ controller\admin\ProdctEditAdmin.class
 controller\admin\OrderListAdmin.class
 controller\AddCart.class
 controller\OrderServlet.class
-controller\ProductSeachByCategory.class
 dao\CartDAOImple.class
 model\Order.class
 model\Category.class
-controller\ProductListClient.class
 controller\admin\UserListAdmin.class
 dao\ProductDAO.class
 controller\admin\UserDeleteAdmin.class
