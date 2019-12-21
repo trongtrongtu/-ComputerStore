@@ -115,7 +115,7 @@
 
                             </div>          
                             <h5>Chọn số lượng:</h5>
-                            <form  action="Cart" method="post">
+                            <form  action="AddCart?productid=<%=request.getParameter("ma_san_pham")%>" method="post">
                                 <input type="hidden" value="<%=id%>" name="ma_nguoi_dung"/>
                                 <input type="hidden" value="<%=ma_san_pham%>" name="ma_san_pham" />
                                 <input type="hidden" value="<%=productDAO.getProduct(Integer.parseInt(ma_san_pham)).getTen_san_pham()%>" name="ten_san_pham" />

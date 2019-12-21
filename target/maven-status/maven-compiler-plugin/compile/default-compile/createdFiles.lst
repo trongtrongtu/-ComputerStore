@@ -1,7 +1,8 @@
-controller\Cart.class
 controller\DeleteCart.class
+model\Cart.class
 dao\CartDAO.class
 conn\ConnectionDB.class
+controller\CartItem.class
 dao\UserDAOImple.class
 controller\MyAccount.class
 controller\SignupServlet.class
@@ -24,6 +25,8 @@ controller\LoginServlet.class
 controller\admin\OderDeleteAdmin.class
 controller\admin\ProdctEditAdmin.class
 controller\admin\OrderListAdmin.class
+controller\AddCart.class
+controller\OrderServlet.class
 controller\ProductSeachByCategory.class
 dao\CartDAOImple.class
 model\Order.class

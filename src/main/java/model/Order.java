@@ -44,14 +44,12 @@ public class Order {
         this.trang_thai = trang_thai;
     }
 
-    public Order(int ma_nguoi_dung, int ma_san_pham, String username_order, String diachi_order, int sdt_order, Date ngay_mua, int so_luong, int thanh_tien, String trang_thai) {
+    public Order(int ma_nguoi_dung, String username_order, String diachi_order, int sdt_order, Date ngay_mua, int thanh_tien, String trang_thai) {
         this.ma_nguoi_dung = ma_nguoi_dung;
-        this.ma_san_pham = ma_san_pham;
         this.username_order = username_order;
         this.diachi_order = diachi_order;
         this.sdt_order = sdt_order;
         this.ngay_mua = ngay_mua;
-        this.so_luong = so_luong;
         this.thanh_tien = thanh_tien;
         this.trang_thai = trang_thai;
     }

@@ -15,8 +15,14 @@ import model.CartAdmin;
  */
 public interface CartDAO {
 
-    // thêm Order
+    // thêm Cart
     public void addCart(Order c);
+    
+    // thêm Order
+    public void addOrder(Order c, int id_order);
+    
+    // hiển thị id_order
+    public int getIdOrder(int ma_nguoi_dung);
 
     // hiển thị danh sách Order
     public List<Order> getListCart(int id);

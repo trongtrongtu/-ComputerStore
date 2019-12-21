@@ -5,14 +5,15 @@
  */
 package controller;
 
-import dao.CartDAOImple;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -26,9 +27,10 @@ public class DeleteCart extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request,
             HttpServletResponse response) throws ServletException, IOException {
-        int ma_san_pham = Integer.parseInt(request.getParameter("ma_san_pham"));
-        CartDAOImple cartDAO = new CartDAOImple();
-        cartDAO.removeCart(ma_san_pham);
-        response.sendRedirect("mycart.jsp");
+        HttpSession session = request.getSession();
+        session.removeAttribute("cart");
+        RequestDispatcher rd = getServletContext().getRequestDispatcher("/mycart.jsp");
+        rd.forward(request, response);
     }
+
 }

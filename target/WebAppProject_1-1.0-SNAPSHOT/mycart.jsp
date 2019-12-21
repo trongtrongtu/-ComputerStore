@@ -5,6 +5,10 @@
 --%>
 
 
+<%@page import="java.text.DecimalFormat"%>
+<%@page import="java.util.List"%>
+<%@page import="model.Cart"%>
+<%@page import="controller.CartItem"%>
 <%@page import="dao.UserDAOImple"%>
 <%@page import="model.Order"%>
 <%@page import="dao.CartDAOImple"%>
@@ -53,65 +57,130 @@
             }
         %>
         <jsp:include page="header.jsp"></jsp:include>
-            <div class="section">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h3 class="section-title">GIỎ HÀNG</h3>
-                        <% if (messager != "") {%>
-                        <div class="alert alert-info"><%=messager%></div>
-                        <% } %>
-                        <table class="table">            
-                            <thead>
-                                <tr>
-                                    <th class="text-center">STT</th>
-                                    <th class="text-center">Tên sản phẩm</th>
-                                    <th class="text-center">Giá sản phẩm</th>
-                                    <th class="text-center">Số lượng</th>
-                                    <th class="text-center">Tổng tiền</th>
-                                    <th class="text-center">Huỷ đơn hàng</th>
-                                </tr>
-                            </thead>
+    <c:set value="${0}" var="total" />
+    <div class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="section-title">GIỎ HÀNG</h3>
+                    <% if (messager != "") {%>
+                    <div class="alert alert-info"><%=messager%></div>
+                    <% } %>
+                    <table class="table">            
+                        <thead>
+                            <tr>
+                                <th class="text-center">STT</th>
+                                <th></th>
+                                <th class="text-center">Tên sản phẩm</th>
+                                <th class="text-center">Giá sản phẩm</th>
+                                <th class="text-center">Số lượng</th>
+                                <th class="text-center">Huỷ đơn hàng</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-center">
                             <%
-                                CartDAOImple cartDAO = new CartDAOImple();
                                 int i = 1;
-                                for (Order c : cartDAO.getListCart(id)) {
+                                if (session.getAttribute("cart") != null) {
+                                    CartItem cart = (CartItem) session.getAttribute("cart");
+                                    List<Cart> items = cart.getItems();
+                                    for (Cart p : items) {
                             %>
-                            <tbody class="text-center">
-                                <tr>
-                                    <td><%=i%></td>
-                                    <td><%=c.getTen_san_pham()%></td>                                                  
-                                    <td><%=c.getGia_ban()%> VNĐ</td>
-                                    <td><%=c.getSo_luong()%></td>
-                                    <td><%=(int) (c.getGia_ban() * c.getSo_luong())%> VNĐ</td>
-                                    <% if (c.getTrang_thai().equals("ĐANG CHỜ")) {%>
-                                    <td>
-                                        <form action="DeleteCart" method="post">
-                                            <input type="hidden" value="<%=c.getMa_san_pham()%>" name="ma_san_pham" />                                           
-                                            <button class="primary-btn">
-                                                <span></span>Huỷ
-                                            </button>
-                                        </form>
-                                    </td>
-                                    <% } %>
-                                </tr>
-                            </tbody>
-                            <%
+                            <tr>
+                                <td><%=i%></td>
+                                <%
+                                    String ten_ma_loai_san_pham = "";
                                     i++;
+                                    if (p.getProduct().getMa_loai_san_pham() == 1) {
+                                        ten_ma_loai_san_pham = "Apple";
+                                    }
+                                    if (p.getProduct().getMa_loai_san_pham() == 2) {
+                                        ten_ma_loai_san_pham = "Hp";
+                                    }
+                                    if (p.getProduct().getMa_loai_san_pham() == 3) {
+                                        ten_ma_loai_san_pham = "Asus";
+                                    }
+                                    if (p.getProduct().getMa_loai_san_pham() == 4) {
+                                        ten_ma_loai_san_pham = "Dell";
+                                    }
+                                    if (p.getProduct().getMa_loai_san_pham() == 5) {
+                                        ten_ma_loai_san_pham = "Lenovo";
+                                    }
+                                %>
+                                <td class="cart_product_img">
+                                    <a href="product_detail.jsp?ma_san_pham=<%=p.getProduct().getMa_san_pham()%>"><img style="width: 100px" src="image/<%=ten_ma_loai_san_pham%>/<%=p.getProduct().getHinh_anh_1()%>" alt="Product"></a>
+                                </td>
+                                <td class="cart_product_desc">
+                                    <h5><%=p.getProduct().getTen_san_pham()%></h5>
+                                </td>
+                                <td class="price">
+                                    <span><%=p.getProduct().getGia_ban()%></span>
+                                </td>
+                                <td class="qty">
+                                    <div class="qty-btn d-flex">
+                                        <div class="quantity">
+                                            <input type="number" class="qty-text" id="qty" step="1" min="1" max="300" name="so_luong" value="<%=p.getSo_luong()%>"onfocus="this.value = '';"
+                                                   onblur="if (this.value == '') {
+                                                               this.value = '<%=p.getSo_luong()%>';
+                                                           }">
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <% if (i > 1) {
+                                    %>   
+                                    <form action="DeleteCart" method="post">  
+                                        <button class="primary-btn">
+                                            <span>Huỷ</span>
+                                        </button>
+                                    </form>
+                                    <%
+                                        }
+                                    %>
+                                </td>
+
+                            </tr>
+                            <%
+                                    }
                                 }
                             %>
-                        </table>
+                        </tbody>
+
+                    </table>
+                </div>
+                <div class="col-12 col-lg-4">
+                    <div class="cart-summary">
+                        <ul class="summary-table">
+                            <% if (session.getAttribute("cart") != null) {
+                                    CartItem cart = (CartItem) session.getAttribute("cart");
+                                    int subTotal = cart.getSubtotal();
+                                    session.setAttribute("subTotal", subTotal);
+                                    DecimalFormat formatter = new DecimalFormat("###,###,###");
+
+
+                            %>
+                            <div style="font-family:Arial; font-size: 20px"><span>Tổng tiền: </span> <span class="product-price"><%=formatter.format(subTotal)%> VNĐ</span></div>
+                            <br>
+                            <div class="cart-btn mt-100">
+                                <form  action="/WebAppProject_1/order_information.jsp">
+                                    <div class="form-group">
+                                        <button class="primary-btn order-submit">Đặt hàng</button>
+                                    </div>
+                                </form>
+                            </div>
+                            <%}%>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
-        <jsp:include page="footer.jsp"></jsp:include>
-        <script src="js/jquery.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/slick.min.js"></script>
-        <script src="js/nouislider.min.js"></script>
-        <script src="js/jquery.zoom.min.js"></script>
-        <script src="js/main.js"></script>
-    </body>
+    </div>
+    <jsp:include page="footer.jsp"></jsp:include>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script src="js/nouislider.min.js"></script>
+    <script src="js/jquery.zoom.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
 </html>
 

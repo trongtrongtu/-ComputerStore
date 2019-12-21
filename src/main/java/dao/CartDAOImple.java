@@ -24,35 +24,62 @@ public class CartDAOImple implements CartDAO {
 
     @Override
     public void addCart(Order c) {
-        String sql1 = "INSERT INTO ORDER_USER(ma_nguoi_dung, ngay_mua, thanh_tien, trang_thai) VALUES (?,?,?,?);";
+        String sql = "INSERT INTO ORDER_USER(ma_nguoi_dung, username_order, diachi_order, sdt_order, ngay_mua, thanh_tien, trang_thai) VALUES (?,?,?,?,?,?,?);";
 
-        PreparedStatement ps1;
+        PreparedStatement ps;
         try {
             Connection con = ConnectionDB.getConnectionDB();
-            ps1 = (PreparedStatement) con.prepareStatement(sql1);
-            ps1.setInt(1, c.getMa_nguoi_dung());
-            ps1.setDate(2, c.getNgay_mua());
-            ps1.setInt(3, c.getThanh_tien());
-            ps1.setString(4, c.getTrang_thai());
-            ps1.executeUpdate();
-            String sql2 = "SELECT ORDER_USER.id_order FROM ORDER_USER WHERE ( trang_thai = N'ĐANG CHỜ');";
-            PreparedStatement ps2;
-            ps2 = (PreparedStatement) con.prepareStatement(sql2);
-            ResultSet rs = ps2.executeQuery();
-            int id_order = rs.getInt("id_order");
-            String sql3 = "INSERT INTO ORDER_DETAIL(id_order, ma_san_pham, so_luong) VALUES (?,?,?)";
-            PreparedStatement ps3;
-            ps3 = (PreparedStatement) con.prepareStatement(sql3);
-            ps3.setInt(1, id_order);
-            ps3.setInt(2, c.getMa_san_pham());
-            ps3.setInt(3, c.getSo_luong());
-
-            ps3.executeUpdate();
+            ps = (PreparedStatement) con.prepareStatement(sql);
+            ps.setInt(1, c.getMa_nguoi_dung());
+            ps.setString(2, c.getUsername_order());
+            ps.setString(3, c.getDiachi_order());
+            ps.setInt(4, c.getSdt_order());
+            ps.setDate(5, c.getNgay_mua());
+            ps.setInt(6, c.getThanh_tien());
+            ps.setString(7, c.getTrang_thai());
+            ps.executeUpdate();
             con.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
+    
+    @Override
+    public void addOrder(Order c, int id_order) {
+        String sql = "INSERT INTO ORDER_USER(id_order, ma_san_pham, so_luong) VALUES (?,?,?);";
+
+        PreparedStatement ps;
+        try {
+            Connection con = ConnectionDB.getConnectionDB();
+            ps = (PreparedStatement) con.prepareStatement(sql);
+            ps.setInt(1, id_order);
+            ps.setInt(2, c.getMa_san_pham());
+            ps.setInt(3, c.getSo_luong());
+            ps.executeUpdate();
+            con.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    @Override
+    public int getIdOrder(int ma_nguoi_dung) {
+        String sql = "SELECT id_order FROM ORDER_USER WHERE((ma_nguoi_dung = '" + ma_nguoi_dung + "') AND (trang_thai = N'ĐANG CHỜ'));";
+        int id_order= 0;
+        try {
+            Connection con = ConnectionDB.getConnectionDB();
+            PreparedStatement ps = (PreparedStatement) con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                id_order = rs.getInt("id_order");
+            }
+            con.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return id_order;
+    }
+    
     //public static void main(String[] args) {
     //long millis = System.currentTimeMillis();  
     //java.sql.Date ngay_mua = new java.sql.Date(millis);

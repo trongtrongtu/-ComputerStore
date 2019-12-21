@@ -80,7 +80,7 @@
                             <div class="header-ctn"> 
 
                                 <div class="dropdown">
-                                    <a href="login.jsp">
+                                    <a href="mycart.jsp">
                                         <i class="fa fa-shopping-cart"></i>
                                         <span>Giỏ hàng</span>
                                     </a>                                
