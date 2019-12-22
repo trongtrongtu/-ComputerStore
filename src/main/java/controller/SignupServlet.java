@@ -66,10 +66,10 @@ public class SignupServlet extends HttpServlet {
         String url = "/signup.jsp";
 
         if (username.equals("") || password.equals("") || email.equals("") || diachi.equals("") || sdt.equals("")) {
-            error += "Add info, please!";
+            error += "Vui lòng nhập đầy đủ thông tin!";
         } else {
             if (userDAO.checkUser(username) == true) {
-                error += "Account has already been created!";
+                error += "Tên tài khoản đã tồn tại!";
             }
         }
 

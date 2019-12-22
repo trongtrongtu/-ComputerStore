@@ -4,6 +4,7 @@
     Author     : Tu Nguyen
 --%>
 
+<%@page import="java.text.DecimalFormat"%>
 <%@page import="dao.CartDAOImple"%>
 <%@page import="model.Product"%>
 <%@page import="dao.ProductDAOImple"%>
@@ -52,6 +53,7 @@
             if (request.getAttribute("message") != null) {
                 message = (String) request.getAttribute("message");
             }
+            DecimalFormat formatter = new DecimalFormat("###,###,###");
         %>
         <jsp:include page="header.jsp"></jsp:include>     
             <div class="section">
@@ -109,10 +111,10 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Giá bán:</label>
-                                    <input class="input" type="text" value="<%=(int) p.getGia_ban()%>"
+                                    <input class="input" type="text" value="<%=formatter.format((int) p.getGia_ban())%> VNĐ"
                                            onfocus="this.value = '';"
                                            onblur="if (this.value == '') {
-                                                       this.value = '<%=(int) p.getGia_ban()%>';
+                                                       this.value = '<%=formatter.format((int) p.getGia_ban())%> VNĐ';
                                                    }"
                                            name="gia_ban" />
                                 </div>      

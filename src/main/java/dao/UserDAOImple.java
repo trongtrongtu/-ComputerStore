@@ -165,4 +165,34 @@ public class UserDAOImple implements UserDAO{
                 e.printStackTrace();
         }
     }
+    
+    @Override
+    public List<User> searchListUser(String keyword_user) {
+        if(keyword_user.equals("")){
+            keyword_user = "1111111111111111111111111111111111111111111";
+        }
+        keyword_user = '%' + keyword_user + '%';
+        String sql = "SELECT * FROM USER_ACCOUNT WHERE ro_le = 2 AND user__name LIKE'" + keyword_user + "';";
+        List<User> list = new ArrayList<User>();
+        try {
+            Connection con = ConnectionDB.getConnectionDB();
+            PreparedStatement ps = (PreparedStatement) con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                    int ma_nguoi_dung = rs.getInt("ma_nguoi_dung");
+                    String user__name = rs.getString("user__name");
+                    String pass_word = rs.getString("pass_word");
+                    Date ngay_sinh = rs.getDate("ngay_sinh");
+                    String gioi_tinh = rs.getString("gioi_tinh");
+                    String email = rs.getString("email");
+                    String sdt = rs.getString("sdt");
+                    String dia_chi = rs.getString("dia_chi");
+                    list.add(new User(ma_nguoi_dung, user__name, pass_word, ngay_sinh, gioi_tinh, email, sdt, dia_chi, 2));
+                }
+                con.close();
+        } catch (SQLException e) {
+                e.printStackTrace();
+        }
+        return list;   
+    }
 }

@@ -88,6 +88,7 @@
                                 <tr>
                                     <th class="text-center">STT</th>
                                     <th class="text-center">Tên sản phẩm</th>
+                                    <th class="text-center">Số lượng</th>
                                     <th class="text-center">Tổng tiền</th>
                                     <th class="text-center">Ngày mua</th>
                                     <th class="text-center">Trạng thái</th>
@@ -101,9 +102,10 @@
                             %>
                                     <tbody class="text-center">
                                         <tr>
-                                            <td><%=i%></td>                                                  
-                                            <td><a href="cartadmin.jsp?ma_loai_san_pham=<%=c.getId_order()%>&ma_san_pham=<%=c.getMa_san_pham()%>"><%=c.getTen_san_pham()%></a></td>
-                                            <td><%=(int)c.getThanh_tien()%> VNĐ</td>
+                                            <td><%=i%></td>        
+                                            <td><a href="cartadmin.jsp?ma_loai_san_pham=<%=c.getMa_loai_san_pham()%>&ma_san_pham=<%=c.getMa_san_pham()%>&id_order=<%=c.getId_order()%>"><%=c.getTen_san_pham()%></a></td>
+                                            <td><%=c.getSo_luong()%></td> 
+                                            <td><%=(int)(c.getSo_luong()*c.getGia_ban())%> VNĐ</td>
                                             <td><%=c.getNgay_mua()%></td>
                                             <td><%=c.getTrang_thai()%></td>
                                         </tr>
@@ -119,8 +121,9 @@
                                     <tbody class="text-center">
                                         <tr>
                                             <td><%=i%></td>                                                  
-                                            <td><a href="cartadmin.jsp?ma_loai_san_pham=<%=c.getId_order()%>&ma_san_pham=<%=c.getMa_san_pham()%>"><%=c.getTen_san_pham()%></a></td>
-                                            <td><%=(int)c.getThanh_tien()%> VNĐ</td>
+                                            <td><a href="cartadmin.jsp?ma_loai_san_pham=<%=c.getMa_loai_san_pham()%>&ma_san_pham=<%=c.getMa_san_pham()%>&id_order=<%=c.getId_order()%>"><%=c.getTen_san_pham()%></a></td>
+                                            <td><%=c.getSo_luong()%></td>
+                                            <td><%=(int)(c.getSo_luong()*c.getGia_ban())%> VNĐ</td>
                                             <td><%=c.getNgay_mua()%></td>
                                             <td><%=c.getTrang_thai()%></td>
                                         </tr>

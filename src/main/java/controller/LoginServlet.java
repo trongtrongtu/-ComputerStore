@@ -49,10 +49,10 @@ public class LoginServlet extends HttpServlet {
         String password = request.getParameter("password");
         String error = "";
         if (username.equals("") || password.equals("")) {
-            error += "Email/Password is required!";
+            error += "Vui lòng nhập đầy đủ tài khoản và mật khẩu!";
         } else {
             if (userDAO.loginUser(username, password) == false) {
-                error += "Email/Password is wrong!";
+                error += "Tài khoản hoặc mật khẩu bị sai!";
             }
         }
 

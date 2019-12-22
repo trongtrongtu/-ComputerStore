@@ -47,5 +47,8 @@ public interface CartDAO {
     
     //danh sách đơn hàng
     public CartAdmin getCart(int id);
+    
+    //tìm kiếm theo keyword
+    public List<CartAdmin> searchListCartAdmin(String keyword_cart);
 
 }

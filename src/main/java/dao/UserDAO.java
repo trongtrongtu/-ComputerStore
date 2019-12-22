@@ -34,5 +34,8 @@ public interface UserDAO {
 
     //xóa người dùng theo mã
     public void removeUser(int ma_nguoi_dung);
+    
+    //tìm kiếm người dùng theo tên
+    public List<User> searchListUser(String keyword_user);
 
 }

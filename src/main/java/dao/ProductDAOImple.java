@@ -312,4 +312,36 @@ public class ProductDAOImple implements ProductDAO {
             e.printStackTrace();
         }
     }
+    
+    @Override
+    public List<Product> searchListProduct(String keyword_product) {
+        if(keyword_product.equals("")){
+            keyword_product = "1111111111111111111111111111111111111111111";
+        }
+        keyword_product = '%' + keyword_product + '%';
+        String sql = "";
+        sql = "SELECT * FROM PRODUCT WHERE ten_san_pham LIKE '" + keyword_product + "';";
+        List<Product> list = new ArrayList<Product>();
+        try {
+            Connection con = ConnectionDB.getConnectionDB();
+            PreparedStatement ps = (PreparedStatement) con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                int ma_san_pham = rs.getInt("ma_san_pham");
+                int ma_loai_san_pham = rs.getInt("ma_loai_san_pham");
+                String ten_san_pham = rs.getString("ten_san_pham");
+                String hinh_anh_1 = rs.getString("hinh_anh_1");
+                String hinh_anh_2 = rs.getString("hinh_anh_2");
+                String hinh_anh_3 = rs.getString("hinh_anh_3");
+                int gia_ban = rs.getInt("gia_ban");
+                String chi_tiet_san_pham = rs.getString("chi_tiet_san_pham");
+                String mo_ta = rs.getString("mo_ta");
+                list.add(new Product(ma_san_pham, ma_loai_san_pham, ten_san_pham, hinh_anh_1, hinh_anh_2, hinh_anh_3, gia_ban, chi_tiet_san_pham, mo_ta));
+            }
+            con.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
 }
