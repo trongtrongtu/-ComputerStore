@@ -39,6 +39,12 @@
             
         %>     
         <div>
+            <h4>THỐNG KÊ</h4>
+            <nav class="list-group">
+                <ul>
+                    <li class="list-group-item"><a href="admin.jsp">Thống kê</a></li>
+                </ul>
+            </nav>
             <h4>TÀI KHOẢN</h4>
             <nav class="list-group">
                 <ul>

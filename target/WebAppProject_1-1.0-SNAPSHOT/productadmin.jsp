@@ -111,10 +111,10 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Giá bán:</label>
-                                    <input class="input" type="text" value="<%=formatter.format((int) p.getGia_ban())%> VNĐ"
+                                    <input class="input" type="text" value="<%=(int) p.getGia_ban()%>"
                                            onfocus="this.value = '';"
                                            onblur="if (this.value == '') {
-                                                       this.value = '<%=formatter.format((int) p.getGia_ban())%> VNĐ';
+                                                       this.value = '<%=(int) p.getGia_ban()%>';
                                                    }"
                                            name="gia_ban" />
                                 </div>      

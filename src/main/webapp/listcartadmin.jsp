@@ -4,6 +4,7 @@
     Author     : Tu Nguyen
 --%>
 
+<%@page import="java.text.DecimalFormat"%>
 <%@page import="model.CartAdmin"%>
 <%@page import="dao.CartDAOImple"%>
 <%@page import="model.Product"%>
@@ -17,7 +18,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
         <title>Danh sách đơn hàng</title>
         <!-- Google font -->
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
@@ -33,36 +34,47 @@
         <!-- Custom stlylesheet -->
         <link type="text/css" rel="stylesheet" href="css/style.css"/>
     </head>
-    
+
     <body>
         <%
             int ma_loai_san_pham = 0;
             if (request.getParameter("ma_loai_san_pham") != null) {
                 ma_loai_san_pham = Integer.parseInt(request.getParameter("ma_loai_san_pham"));
-            } 
-            
+            }
+
             int tuy_chon = 0;
-            if(request.getParameter("tuy_chon") != null) {
+            if (request.getParameter("tuy_chon") != null) {
                 tuy_chon = Integer.parseInt(request.getParameter("tuy_chon"));
             }
-            
+
             String cart = "";
-            if(ma_loai_san_pham == 1) cart = "ĐƠN HÀNG APPLE";
-            if(ma_loai_san_pham == 2) cart = "ĐƠN HÀNG HP";
-            if(ma_loai_san_pham == 3) cart = "ĐƠN HÀNG ASUS";
-            if(ma_loai_san_pham == 4) cart = "ĐƠN HÀNG DELL";
-            if(ma_loai_san_pham == 5) cart = "ĐƠN HÀNG LENOVO";
-            if(ma_loai_san_pham == 12345) cart = "TẤT CẢ ĐƠN HÀNG";
+            if (ma_loai_san_pham == 1) {
+                cart = "ĐƠN HÀNG APPLE";
+            }
+            if (ma_loai_san_pham == 2) {
+                cart = "ĐƠN HÀNG HP";
+            }
+            if (ma_loai_san_pham == 3) {
+                cart = "ĐƠN HÀNG ASUS";
+            }
+            if (ma_loai_san_pham == 4) {
+                cart = "ĐƠN HÀNG DELL";
+            }
+            if (ma_loai_san_pham == 5) {
+                cart = "ĐƠN HÀNG LENOVO";
+            }
+            if (ma_loai_san_pham == 12345)
+                cart = "TẤT CẢ ĐƠN HÀNG";
         %>
         <jsp:include page="header.jsp"></jsp:include>     
-        <div class="section">
-            <div class="container" style="width: 100%">
-                <div class="row">
-                    <div class="col-md-3">
+            <div class="section">
+                <div class="container" style="width: 100%">
+                    <div class="row">
+                        <div class="col-md-3">
                         <jsp:include page="taskadmin.jsp"></jsp:include>
-                    </div>
-                    <div class="col-md-9">
-                        <h3 class="section-title"><%=cart%></h3>
+                        </div>
+                        <div class="col-md-9">
+                            <h3 class="section-title"><%=cart%></h3>
                         <div class="col-md-8">
                             <div class="header-search">
                                 <div class="header-search">
@@ -72,15 +84,15 @@
                                     </form>
                                 </div>
                                 <div class="dropdown">
-                                <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">Tuỳ Chọn
-                                <span class="caret"></span></button>
-                                <ul class="dropdown-menu">
-                                  <li><a href="listcartadmin.jsp?ma_loai_san_pham=<%=ma_loai_san_pham%>&tuy_chon=1" style="font-weight: bold">Sắp xếp theo tên sản phẩm</a></li>
-                                  <li><a href="listcartadmin.jsp?ma_loai_san_pham=<%=ma_loai_san_pham%>&tuy_chon=2" style="font-weight: bold">Sắp xếp theo giá trị đơn hàng</a></li>
-                                  <li><a href="listcartadmin.jsp?ma_loai_san_pham=<%=ma_loai_san_pham%>&tuy_chon=3" style="font-weight: bold">Săp xếp theo thời gian</a></li>
-                                  <li><a href="listcartadmin.jsp?ma_loai_san_pham=<%=ma_loai_san_pham%>&tuy_chon=4" style="font-weight: bold">Săp xếp theo trạng thái đơn hàng</a></li>
-                                </ul>
-                            </div>
+                                    <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">Tuỳ Chọn
+                                        <span class="caret"></span></button>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="listcartadmin.jsp?ma_loai_san_pham=<%=ma_loai_san_pham%>&tuy_chon=1" style="font-weight: bold">Sắp xếp theo tên sản phẩm</a></li>
+                                        <li><a href="listcartadmin.jsp?ma_loai_san_pham=<%=ma_loai_san_pham%>&tuy_chon=2" style="font-weight: bold">Sắp xếp theo giá trị đơn hàng</a></li>
+                                        <li><a href="listcartadmin.jsp?ma_loai_san_pham=<%=ma_loai_san_pham%>&tuy_chon=3" style="font-weight: bold">Săp xếp theo thời gian</a></li>
+                                        <li><a href="listcartadmin.jsp?ma_loai_san_pham=<%=ma_loai_san_pham%>&tuy_chon=4" style="font-weight: bold">Săp xếp theo trạng thái đơn hàng</a></li>
+                                    </ul>
+                                </div>
                             </div>                           
                         </div>
                         <table class="table">
@@ -92,46 +104,48 @@
                                     <th class="text-center">Tổng tiền</th>
                                     <th class="text-center">Ngày mua</th>
                                     <th class="text-center">Trạng thái</th>
-                               </tr>
+                                </tr>
                             </thead>
                             <%
-                                if(ma_loai_san_pham != 12345) {
+                                if (ma_loai_san_pham != 12345) {
                                     int i = 1;
                                     CartDAOImple cartDAO = new CartDAOImple();
-                                    for (CartAdmin c : cartDAO.getListCartAdminCategory(ma_loai_san_pham,tuy_chon)) {
+                                    for (CartAdmin c : cartDAO.getListCartAdminCategory(ma_loai_san_pham, tuy_chon)) {
+                                        DecimalFormat formatter = new DecimalFormat("###,###,###");
                             %>
-                                    <tbody class="text-center">
-                                        <tr>
-                                            <td><%=i%></td>        
-                                            <td><a href="cartadmin.jsp?ma_loai_san_pham=<%=c.getMa_loai_san_pham()%>&ma_san_pham=<%=c.getMa_san_pham()%>&id_order=<%=c.getId_order()%>"><%=c.getTen_san_pham()%></a></td>
-                                            <td><%=c.getSo_luong()%></td> 
-                                            <td><%=(int)(c.getSo_luong()*c.getGia_ban())%> VNĐ</td>
-                                            <td><%=c.getNgay_mua()%></td>
-                                            <td><%=c.getTrang_thai()%></td>
-                                        </tr>
-                                    </tbody>
-                            <% 
-                                    i++; 
-                                }   
-                            }else{
-                                    int i = 1;
-                                    CartDAOImple cartDAO = new CartDAOImple();
-                                    for (CartAdmin c : cartDAO.getListCartAdmin(tuy_chon)) {
-                            %>
-                                    <tbody class="text-center">
-                                        <tr>
-                                            <td><%=i%></td>                                                  
-                                            <td><a href="cartadmin.jsp?ma_loai_san_pham=<%=c.getMa_loai_san_pham()%>&ma_san_pham=<%=c.getMa_san_pham()%>&id_order=<%=c.getId_order()%>"><%=c.getTen_san_pham()%></a></td>
-                                            <td><%=c.getSo_luong()%></td>
-                                            <td><%=(int)(c.getSo_luong()*c.getGia_ban())%> VNĐ</td>
-                                            <td><%=c.getNgay_mua()%></td>
-                                            <td><%=c.getTrang_thai()%></td>
-                                        </tr>
-                                    </tbody>
+                            <tbody class="text-center">
+                                <tr>
+                                    <td><%=i%></td>        
+                                    <td><a href="cartadmin.jsp?ma_loai_san_pham=<%=c.getMa_loai_san_pham()%>&ma_san_pham=<%=c.getMa_san_pham()%>&id_order=<%=c.getId_order()%>"><%=c.getTen_san_pham()%></a></td>
+                                    <td><%=c.getSo_luong()%></td> 
+                                    <td><%=formatter.format((int) (c.getSo_luong() * c.getGia_ban()))%> VNĐ</td>
+                                    <td><%=c.getNgay_mua()%></td>
+                                    <td><%=c.getTrang_thai()%></td>
+                                </tr>
+                            </tbody>
                             <%
                                     i++;
-                                } 
-                            }    
+                                }
+                            } else {
+                                int i = 1;
+                                CartDAOImple cartDAO = new CartDAOImple();
+                                for (CartAdmin c : cartDAO.getListCartAdmin(tuy_chon)) {
+                                    DecimalFormat formatter = new DecimalFormat("###,###,###");
+                            %>
+                            <tbody class="text-center">
+                                <tr>
+                                    <td><%=i%></td>                                                  
+                                    <td><a href="cartadmin.jsp?ma_loai_san_pham=<%=c.getMa_loai_san_pham()%>&ma_san_pham=<%=c.getMa_san_pham()%>&id_order=<%=c.getId_order()%>"><%=c.getTen_san_pham()%></a></td>
+                                    <td><%=c.getSo_luong()%></td>
+                                    <td><%=formatter.format((int) (c.getSo_luong() * c.getGia_ban()))%> VNĐ</td>
+                                    <td><%=c.getNgay_mua()%></td>
+                                    <td><%=c.getTrang_thai()%></td>
+                                </tr>
+                            </tbody>
+                            <%
+                                        i++;
+                                    }
+                                }
                             %>                            
                         </table>
                     </div>
@@ -146,7 +160,7 @@
         <script src="js/jquery.zoom.min.js"></script>
         <script src="js/main.js"></script>
         <script>
-            $(document).ready(function(){
+            $(document).ready(function () {
                 $('.dropdown-toggle').dropdown();
             });
         </script>
